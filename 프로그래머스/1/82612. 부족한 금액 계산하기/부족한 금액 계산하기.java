@@ -8,5 +8,6 @@ class Solution {
 
         if (answer < money) return 0;
         return answer - money;
+        
     }
 }

@@ -1,19 +1,15 @@
 import java.util.*;
+import java.util.stream.*;
 
-public class Main {
-    public int solution(int a, int b) {
-        int answer = a + b;
-        
-        return answer;
-    }
-    
+class Main {
     public static void main(String[] args) {
-        Main main = new Main();
         Scanner sc = new Scanner(System.in);
         
-        int a = sc.nextInt();
-        int b = sc.nextInt();
+        int answer = Stream.generate(sc::nextInt)
+            .limit(2)
+            .mapToInt(Integer::intValue)
+            .sum();
         
-        System.out.println(main.solution(a, b));
+        System.out.println(answer);
     }
 }

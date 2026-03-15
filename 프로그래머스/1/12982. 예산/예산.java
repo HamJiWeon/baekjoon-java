@@ -6,10 +6,10 @@ class Solution {
         
         Arrays.sort(d);
         
-        int sum = 0;
         for (int i : d) {
-            sum += i;
-            if (sum <= budget) answer++;
+            if (budget < i) return answer;
+            budget -= i;
+            answer++;
         }
         
         return answer;

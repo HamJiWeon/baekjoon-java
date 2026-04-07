@@ -8,12 +8,6 @@ class Solution {
     }
     
     private int GCD(int a, int b){
-        while(b != 0) {
-            int r = a % b;
-            a = b;
-            b = r;
-        }
-        
-        return a;
+        return b == 0 ? a : GCD(b, a % b);
     }
 }

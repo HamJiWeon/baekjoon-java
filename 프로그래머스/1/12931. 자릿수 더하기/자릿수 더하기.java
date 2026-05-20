@@ -1,14 +1,9 @@
-import java.util.*;
+import java.util.stream.*;
 
 public class Solution {
     public int solution(int n) {
-        int answer = 0;
-        String number = String.valueOf(n);
-        
-        for (char c : number.toCharArray()) {
-            answer += c - '0';
-        }
-
-        return answer;
+        return Stream.of(String.valueOf(n).split(""))
+            .mapToInt(Integer::parseInt)
+            .sum();
     }
 }

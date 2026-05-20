@@ -1,12 +1,16 @@
+import java.util.*;
+import java.util.stream.*;
+
 class Solution {
-     public int[] solution(long n) {
-        char[] numbers = String.valueOf(n).toCharArray();
-        int[] answer = new int[numbers.length];
-
-        for (int i = numbers.length - 1; i >= 0; i--) {
-            answer[numbers.length - 1 - i] = Integer.parseInt(String.valueOf(numbers[i]));
-        }
-
-        return answer;
+    public int[] solution(long n) {
+        List<Integer> answer = Stream.of(String.valueOf(n).split(""))
+            .map(Integer::parseInt)
+            .collect(Collectors.toList());
+        
+        Collections.reverse(answer);
+        
+        return answer.stream()
+            .mapToInt(Integer::intValue)
+            .toArray();
     }
 }

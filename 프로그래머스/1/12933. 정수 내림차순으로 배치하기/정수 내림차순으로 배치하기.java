@@ -1,20 +1,12 @@
 import java.util.*;
+import java.util.stream.*;
 
 class Solution {
     public long solution(long n) {
-        long answer = 0;
+        String s = Stream.of(String.valueOf(n).split(""))
+            .sorted(Comparator.reverseOrder())
+            .collect(Collectors.joining());
         
-        char[] numbers = String.valueOf(n).toCharArray();
-        
-        Arrays.sort(numbers);
-        
-        StringBuilder sb = new StringBuilder();
-        for (int i = numbers.length - 1; i >= 0; i--) {
-            sb.append(numbers[i]);
-        }
-        
-        long num = Long.parseLong(sb.toString());
-        
-        return num;
+        return Long.parseLong(s);
     }
 }

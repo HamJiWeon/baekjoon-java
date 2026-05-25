@@ -1,11 +1,8 @@
+import java.util.*;
+
 class Solution {
     public double solution(int[] arr) {
-        double answer = 0;
-        
-    for (int score : arr) {
-        answer += score;
-    }
-        
-        return answer / arr.length;
+        return Arrays.stream(arr)
+            .average().orElse(0.0);
     }
 }

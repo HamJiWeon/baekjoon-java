@@ -2,12 +2,13 @@ import java.util.*;
 
 class Solution {
     public boolean solution(int x) {
-        boolean answer = true;
         
-        int sum = String.valueOf(x)
-            .chars()
-            .map(Character::getNumericValue)
-            .sum();
+        char[] arr = String.valueOf(x).toCharArray();
+        
+        int sum = 0;
+        for (char c : arr) {
+            sum += c - '0';
+        }
         
         return x % sum == 0;
     }

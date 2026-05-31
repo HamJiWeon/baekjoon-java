@@ -4,14 +4,8 @@ class Solution {
         
         if (a == b) return a;
         
-        if (a < b) {
-            for (int i = a; i <= b; i++) {
-                answer += i;
-            }
-        } else if (a > b) {
-            for (int i = a; i >= b; i--) {
-                answer += i;
-            }
+        for (int i = Math.min(a, b); i <= Math.max(a, b); i++) {
+            answer += i;
         }
         
         return answer;

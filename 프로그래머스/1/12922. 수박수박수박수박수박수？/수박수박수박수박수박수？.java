@@ -1,9 +1,9 @@
 class Solution {
     public String solution(int n) {
-        String answer = "수박";
+        String answer = "수박".repeat(20000);
         
-        answer = answer.repeat(n / 2);
+        String s = answer.substring(0, n);
         
-        return n % 2 == 0 ? answer : answer + "수";
+        return s;
     }
 }

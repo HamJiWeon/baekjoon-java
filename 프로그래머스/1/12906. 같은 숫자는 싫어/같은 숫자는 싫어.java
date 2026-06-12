@@ -7,8 +7,11 @@ public class Solution {
         answer.add(arr[0]);
         for (int i = 1; i < arr.length; i++) {
             if (arr[i - 1] != arr[i]) answer.add(arr[i]);
+            else continue;
         }
 
-        return answer.stream().mapToInt(i -> i).toArray();
+        return answer.stream()
+            .mapToInt(Integer::intValue)
+            .toArray();
     }
 }

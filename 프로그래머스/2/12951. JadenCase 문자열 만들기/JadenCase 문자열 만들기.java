@@ -1,15 +1,16 @@
 class Solution {
     public String solution(String s) {
-        StringBuilder sb = new StringBuilder();
-        
         String[] arr = s.split("");
-        sb.append(arr[0].toUpperCase());
+        
+        arr[0] = arr[0].toUpperCase();
         for (int i = 1; i < arr.length; i++) {
-            if (arr[i - 1].equals(" ")) sb.append(arr[i].toUpperCase());
-            else sb.append(arr[i].toLowerCase());
-        } 
+            if (arr[i - 1].equals(" ")) {
+                arr[i] = arr[i].toUpperCase();
+            } else {
+                arr[i] = arr[i].toLowerCase();
+            }
+        }
         
-        
-        return sb.toString();
+        return String.join("", arr);
     }
 }

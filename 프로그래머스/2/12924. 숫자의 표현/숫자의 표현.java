@@ -1,18 +1,16 @@
 class Solution {
     public int solution(int n) {
-        int answer = 0, lt = 1, rt = 1, sum = 1;
+        int answer = 0;
         
-        while (lt <= n) {
+        int lt = 1, rt = 1, sum = 1;
+        while (rt <= n) {
             if (sum < n) {
-                rt++;
-                sum += rt;
-            } else if (sum > n) {
-                sum -= lt;
-                lt++;
-            } else {
+                sum += ++rt;
+            } else if(sum == n) {
                 answer++;
-                sum -= lt;
-                lt++;
+                sum += ++rt;
+            }  else {
+                sum -= lt++;
             }
         }
         

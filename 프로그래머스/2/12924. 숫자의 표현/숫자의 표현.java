@@ -1,19 +1,22 @@
 class Solution {
     public int solution(int n) {
         int answer = 0;
-        
-        int lt = 1, rt = 1, sum = 1;
-        while (rt <= n) {
-            if (sum < n) {
-                sum += ++rt;
-            } else if(sum == n) {
-                answer++;
-                sum += ++rt;
-            }  else {
-                sum -= lt++;
+
+        for (int i = 1; i <= n; i++) {
+            int sum = 0;
+            for (int j = i; j <= n; j++) {
+                sum += j;
+
+                if (sum == n) {
+                    answer++;
+                    break;
+                }
+
+                if (sum > n) {
+                    break;
+                }
             }
         }
-        
         return answer;
     }
 }

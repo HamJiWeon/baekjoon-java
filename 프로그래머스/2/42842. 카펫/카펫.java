@@ -1,15 +1,18 @@
 class Solution {
     public int[] solution(int brown, int yellow) {
-        int total = brown + yellow;
         
-        for (int h = 3; h <= Math.sqrt(total); h++) {
-            if (total % h == 0) {
-                int w = total / h;
-                
-                if ((w - 2) * (h - 2) == yellow) return new int[] {w, h};
+        int total = brown + yellow;
+        int weight = 0;
+        
+        for (int height = 3; height <= Math.sqrt(total); height++) {
+            if (total % height == 0) {
+                weight = total / height;
             }
+            
+            if ((weight - 2) * (height - 2) == yellow) return new int[]{weight, height};
         }
         
-        return new int[] {0, 0};
+        
+        return new int[]{0, 0};
     }
 }

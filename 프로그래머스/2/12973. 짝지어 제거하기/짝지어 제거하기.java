@@ -2,17 +2,17 @@ import java.util.*;
 
 class Solution {
     public int solution(String s) {
-        Deque<Character> dq = new ArrayDeque<>();
-        
-        for (char c : s.toCharArray()) {
-            if (dq.isEmpty() || dq.peek() != c) {
-                dq.push(c);
-            } 
+        Deque<Character> stack = new ArrayDeque<>();
+
+        stack.push(s.charAt(0));
+        for (int i = 1; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (!stack.isEmpty() && stack.peek() == c) stack.pop();
             else {
-                dq.pop();
+                stack.push(c);
             }
         }
 
-        return dq.isEmpty() ? 1 : 0;
+        return stack.isEmpty() ? 1 : 0;
     }
 }

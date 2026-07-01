@@ -6,17 +6,21 @@ class Solution {
         
         Arrays.sort(people);
         
-        int lt = 0, rt = people.length - 1;
-        while (lt < rt) {
-            if (people[lt] + people[rt] <= limit) {
-                lt++;
+        int light = 0, heavy = people.length - 1;
+        while (light <= heavy) {
+            if (people[light] + people[heavy] > limit) {
+                answer++;
+                heavy--;
+            } else if (people[light] + people[heavy] == limit) {
+                answer++;
+                light++;
+                heavy--;
+            } else {
+                light++;
+                heavy--;
+                answer++;
             }
-            
-            rt--;
-            answer++;
         }
-        
-        if (rt == lt) answer++;
         
         return answer;
     }
